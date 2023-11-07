@@ -46,30 +46,26 @@ cd xgeeks-ai-starter-demo
 
 ### 3. Fill out secrets
 
-#### 3.1 Geekathon provided secrets 
-All Geekathon participants will receive an email with api keys, for the required AI tools (OpenAI, Pinecone, Replicate).
+#### 3.1 Geekathon provided secrets (OpenAI)
+All Geekathon participants will receive an email with an API key for OpenAI.
 
-```
-you must update your .env.local file with those provided keys
-```
+#### 3.2 How to get secrets (Pinecone, Replicate)
 
-#### 3.2 DIY and get your own secrets
-a. **OpenAI API key**
-
-Visit https://platform.openai.com/account/api-keys to get your OpenAI API key
-
-b. **Replicate API key**
+a. **Replicate API key**
 
 Visit https://replicate.com/account/api-tokens to get your Replicate API key
 
 > **_NOTE:_**  By default, this template uses Pinecone as vector store, but you can turn on Supabase pgvector easily. This means you only need to fill out either Pinecone API key _or_ Supabase API key. 
 
-c. **Pinecone API key**
+b. **Pinecone API key**
 - Create a Pinecone index by visiting https://app.pinecone.io/ and click on "Create Index"
 - Give it an index name (this will be the environment variable `PINECONE_INDEX`)
 - Fill in Dimension as `1536`
 - Once the index is successfully created, click on "API Keys" on the left side nav and create an API key: copy "Environment" value to `PINECONE_ENVIRONMENT` variable, and "Value" to `PINECONE_API_KEY`
 
+```
+you must update your .env.local file with all keys (OpenAI, Pinecone, Replicate)
+```
 
 ### 4. Generate embeddings
 
