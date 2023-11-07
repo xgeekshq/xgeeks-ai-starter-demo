@@ -8,5 +8,4 @@ edit_uri: edit/master/docs
 
 # For sidebar navigation
 nav:
-  - Overview: "index.md"
-  - Getting Started: "getting-started/getting-started.md"
+  - Getting Started: "index.md"
