@@ -1,8 +1,8 @@
 # Geekathon AI Starter Template
 
-[Live Demo](https://geekathon-ai-starter-template.xgeeks.tech/)
+[Live Demo](https://xgeeks-ai-starter-demo-dev.xgeeks.tech/)
 
-<img width="1305" alt="ScreenShot" src="../assets/Demo_Screenshot.png">
+<img width="1305" alt="ScreenShot" src="./assets/Demo_Screenshot.png">
 
 ## Stack
 
