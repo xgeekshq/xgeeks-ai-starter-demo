@@ -8,8 +8,5 @@ edit_uri: edit/master/docs
 
 # For sidebar navigation
 nav:
-  - index.md
-  - Overview:
-      - What is AI Starter Template?: "overview/what-is-ai-starter-template.md"
-  - Getting Started:
-      - Getting Started: "index.md"
+  - Overview: "index.md"
+  - Getting Started: "getting-started/getting-started.md"

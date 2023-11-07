@@ -1,36 +1,15 @@
-## Getting Started
+# What is Geekathon AI Starter Template
 
-To create a new instance of the Geekathon AI Starter Template, just go to:
+Geekathon AI Starter Template is a project that helps you to quickly start a new AI Project.
+It provides you with a starting codebase, and a functional demo project, from where you can build you project up on.
 
-> [AI Starter Template Overview Page](https://idp.xgeeks.tech/catalog/default/template/ai-starter-template-nextjs-auth0-new)
+The codebase is developed with NextJS, and makes use of OpenAI models, as well as Pinecone for vector database and Replicate for image generation.
 
-and click "Launch Template"
+Another cool benefit is that the deployment part is already made up for you.
+As soon as you request your instance of this project, you will have access to:
 
-Or in alternative: side Menu / Create
+- a github repo
+- a project url, where you can see it running live (it will be hosted in a xgeeks kubernetes cluster)
+- also, all the pipeline for the new feature deployments will be set and ready to receive your commits.
 
-### Form Inputs: Project info
-
-- Select a name for you new project (only lower case letters and -, allowed)
-- Write a short description, or leave the default value
-- click Next
-
-### Form Inputs: Environment Variables
-
-- Here you can insert the API tokens that you've received by email
-- You can leave some fields empty, if we will not be using those resources
-- BUT, we recommend that you fill them all, just in case
-- DO NOT use quotes ("")
-- click Next
-
-### Final step
-
-- after a few minutes your instance will be ready
-- use the provided links to get access to the repo and the project webpage
-- clone the repo to your machine
-- take a look on README.md
-- bootstrap your local dev environment using the included script
-
-```sh
-# boostrap
-$ ./run-install.sh
-```
+This is possible via xgeeks IDP (Internal Developer Platform), that allow developers to self service their new projects resources, as easy as it is to fill out a small form and click a button.
