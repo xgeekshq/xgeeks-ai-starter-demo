@@ -41,7 +41,6 @@ cd xgeeks-ai-starter-demo
 # script will:
 ## - install npm packages
 ## - create a .env file
-## - generate a random secret for Auth0 to encrypt tokens
 ```
 
 ### 3. Fill out secrets
