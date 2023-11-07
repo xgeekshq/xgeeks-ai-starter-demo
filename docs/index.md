@@ -2,7 +2,7 @@
 
 [Live Demo](https://geekathon-ai-starter-template.xgeeks.tech/)
 
-<img width="1305" alt="ScreenShot" src="./assets/Demo_Screenshot.png">
+<img width="1305" alt="ScreenShot" src="../assets/Demo_Screenshot.png">
 
 ## Stack
 
