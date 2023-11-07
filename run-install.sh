@@ -21,13 +21,21 @@ fi
 log info "Installing dependencies..."
 npm install
 
+# bypass auth for local dev
+sed -i "" "s#<UserProvider>#{/* <UserProvider> */}#" src/app/layout.tsx
+sed -i "" "s#</UserProvider>#{/* </UserProvider> */}#" src/app/layout.tsx
+
+sed -i "" "s#const { user, error, isLoading } = useUser();#// const { user, error, isLoading } = useUser();\nlet user = { name: \"Guest\" };#" src/app/page.tsx
+sed -i "" "s#if (isLoading) return <div>Loading...</div>;#// if (isLoading) return <div>Loading...</div>;#"  src/app/page.tsx
+sed -i "" "s#if (error) return <div>{error.message}</div>;#// if (error) return <div>{error.message}</div>;#"  src/app/page.tsx
+
 # create .env.local if not already existent
 if ! [ -f /.env.local ]; then
   log info "Creating local .env file..."
   cp .env.local.example .env.local
   # generate a random secret
-  AUTH0_SECRET=$(openssl rand -hex 32)
-  echo "\nAUTH0_SECRET=\"${AUTH0_SECRET}\"" >> ./.env.local
+  # AUTH0_SECRET=$(openssl rand -hex 32)
+  # echo "\nAUTH0_SECRET=\"${AUTH0_SECRET}\"" >> ./.env.local
 fi
 
 log warn "Please edit \".env.local\" file with your own data values."
