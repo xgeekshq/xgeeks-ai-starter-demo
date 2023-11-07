@@ -1,0 +1,31 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: xgeeks-ai-starter-demo
+  # namespace: default
+  description: A live demo of a NextJS app with AI features
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: xgeekshq/xgeeks-ai-starter-demo
+  tags: ["service", "nextjs", "auth0", "ai"]
+  links:
+    - url: https://idp.xgeeks.tech/catalog/default/template/ai-starter-template-nextjs
+      title: Source Template
+      icon: docs
+    - url: https://github.com/xgeekshq/xgeeks-ai-starter-demo.git
+      title: Project Source Code Repository
+      icon: github
+    # - url: https://github.com/xgeekshq/xgeeks-ai-starter-demo_deployment.git
+    #   title: Project Deployment Repository
+    #   icon: github
+    - url: https://xgeeks-ai-starter-demo-dev.xgeeks.tech
+      title: Project Website
+      icon: website
+    # - title: ArgoCD Dashboard
+    #   icon: dashboard
+    #   url: https://argocd.xgeeks.tech/applications/argocd/xgeeks-ai-starter-demo-dev?view=tree&resource=
+spec:
+  type: service
+  lifecycle: experimental # REQUIRED, usually = production | experimental | deprecated
+  owner: group:default/idp_training
+  system: geekathon

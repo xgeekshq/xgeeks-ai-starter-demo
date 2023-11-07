@@ -1,0 +1,73 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create Auth0 App
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    # to run only once per project
+    paths:
+      - ".github/workflows/create-auth0-app.yaml"
+
+env:
+  AZ_SECRET: ""
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  setup-auth:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      - name: Install Auth0 cli
+        run: |
+          # Binary will be downloaded to "./auth0".
+          curl -sSfL https://raw.githubusercontent.com/auth0/auth0-cli/main/install.sh | sh -s -- -b .
+
+          # To be able to run the binary from any directory
+          # make sure you move it to a place in your $PATH
+          sudo mv ./auth0 /usr/local/bin
+
+      - name: Login to Auth0
+        run: |
+          auth0 login --domain ${{ secrets.AUTH0_DOMAIN }} --client-id ${{ secrets.AUTH0_CLIENT_ID }} --client-secret ${{ secrets.AUTH0_CLIENT_SECRET }}
+
+      - name: Create app
+        run: |
+          # create the app and returns a subset of the json return message
+          NEW_APP=$(auth0 apps create --name xgeeks-ai-starter-demo \
+          --description "A live demo of a NextJS app with AI features" \
+          --type spa \
+          --callbacks "http://localhost:3000/api/auth/callback,https://xgeeks-ai-starter-demo-dev.xgeeks.tech/api/auth/callback" \
+          --origins "http://localhost:3000/,https://xgeeks-ai-starter-demo-dev.xgeeks.tech/" \
+          --logout-urls "http://localhost:3000/,https://xgeeks-ai-starter-demo-dev.xgeeks.tech/" \
+          --reveal-secrets --json | jq 'with_entries(select([.key] | inside(["name", "client_id", "client_secret"])))')
+          # compose the json to be stored in azure secret
+          JWTSECRET=$(openssl rand -hex 32)
+          RES=$(echo $NEW_APP | jq -rc --arg newval "https://${{secrets.AUTH0_DOMAIN}}" --arg jwtsecret "${JWTSECRET}" '. += { tenant: $newval, jwt_secret: $jwtsecret }')
+          echo "AZ_SECRET"=$RES >> $GITHUB_ENV
+
+      - uses: Azure/login@v1
+        with:
+          creds: '{"clientId":"${{ secrets.AZ_VAULT_SP_ID }}","clientSecret":"${{ secrets.AZ_VAULT_SP_PASSW }}","tenantId":"${{ secrets.AZ_VAULT_SP_TENANT }}"}'
+          allow-no-subscriptions: true # logs in without subscription info
+
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az keyvault secret set --vault-name ${{ secrets.AZ_VAULT_NAME }} --name xgeeks-ai-starter-demo-dev-auth0-secrets --value '${{ env.AZ_SECRET }}'
+            az logout
+
+      # - name: Logout
+      #   run: |
+      #     auth0 logout ${{ secrets.AUTH0_DOMAIN }}

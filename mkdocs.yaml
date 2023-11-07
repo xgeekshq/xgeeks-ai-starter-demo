@@ -1,0 +1,15 @@
+site_name: xgeeks-ai-starter-demo
+site_description: "Main documentation for xgeeks-ai-starter-demo project"
+repo_url: https://github.com/xgeekshq/xgeeks-ai-starter-demo.git
+edit_uri: edit/master/docs
+
+# plugins:
+#   - techdocs-core
+
+# For sidebar navigation
+nav:
+  - index.md
+  - Overview:
+      - What is AI Starter Template?: "overview/what-is-ai-starter-template.md"
+  - Getting Started:
+      - Getting Started: "index.md"
