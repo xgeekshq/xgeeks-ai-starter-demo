@@ -44,7 +44,7 @@ cd xgeeks-ai-starter-demo
 ## - generate a random secret for Auth0 to encrypt tokens
 ```
 
-### 3. Fill out secrets :construction: --wip--
+### 3. Fill out secrets
 
 All Geekathon participants will receive an email with api keys, for the required AI tools (OpenAI, Pinecone, Replicate).
 
