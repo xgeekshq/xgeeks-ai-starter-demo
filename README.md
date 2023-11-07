@@ -47,15 +47,13 @@ cd xgeeks-ai-starter-demo
 ### 3. Fill out secrets
 
 #### 3.1 Geekathon provided secrets (OpenAI)
-All Geekathon participants will receive an email with an API key for OpenAI.
+All Geekathon teams will receive an email with an API key for OpenAI.
 
 #### 3.2 How to get secrets (Pinecone, Replicate)
 
 a. **Replicate API key**
 
 Visit https://replicate.com/account/api-tokens to get your Replicate API key
-
-> **_NOTE:_**  By default, this template uses Pinecone as vector store, but you can turn on Supabase pgvector easily. This means you only need to fill out either Pinecone API key _or_ Supabase API key. 
 
 b. **Pinecone API key**
 - Create a Pinecone index by visiting https://app.pinecone.io/ and click on "Create Index"
