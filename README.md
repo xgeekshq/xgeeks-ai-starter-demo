@@ -12,7 +12,7 @@
 - Image Model: [Replicate](https://replicate.com/)
 - Text Model: [OpenAI](https://platform.openai.com/docs/models)
 - Text streaming: [ai sdk](https://github.com/vercel-labs/ai)
-- Deployment: will be automatic on xgeeks platform
+- Deployment: automatic on xgeeks platform for development.
 
 ## Overview
 
@@ -44,13 +44,32 @@ cd xgeeks-ai-starter-demo
 ## - generate a random secret for Auth0 to encrypt tokens
 ```
 
-### 3. Fill out secrets :construction: --wip--
+### 3. Fill out secrets
 
+#### 3.1 Geekathon provided secrets 
 All Geekathon participants will receive an email with api keys, for the required AI tools (OpenAI, Pinecone, Replicate).
 
 ```
 you must update your .env.local file with those provided keys
 ```
+
+#### 3.2 DIY and get your own secrets
+a. **OpenAI API key**
+
+Visit https://platform.openai.com/account/api-keys to get your OpenAI API key
+
+b. **Replicate API key**
+
+Visit https://replicate.com/account/api-tokens to get your Replicate API key
+
+> **_NOTE:_**  By default, this template uses Pinecone as vector store, but you can turn on Supabase pgvector easily. This means you only need to fill out either Pinecone API key _or_ Supabase API key. 
+
+c. **Pinecone API key**
+- Create a Pinecone index by visiting https://app.pinecone.io/ and click on "Create Index"
+- Give it an index name (this will be the environment variable `PINECONE_INDEX`)
+- Fill in Dimension as `1536`
+- Once the index is successfully created, click on "API Keys" on the left side nav and create an API key: copy "Environment" value to `PINECONE_ENVIRONMENT` variable, and "Value" to `PINECONE_API_KEY`
+
 
 ### 4. Generate embeddings
 
