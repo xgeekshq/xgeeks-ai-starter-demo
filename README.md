@@ -44,6 +44,9 @@ cd xgeeks-ai-starter-demo
 ```
 
 ### 3. Fill out secrets
+```
+you must update your .env.local file with all keys (OpenAI, Pinecone, Replicate)
+```
 
 #### 3.1 Geekathon provided secrets (OpenAI)
 All Geekathon teams will receive an email with an API key for OpenAI.
@@ -58,10 +61,6 @@ b. **Pinecone API key**
 - Give it an index name (this will be the environment variable `PINECONE_INDEX`)
 - Fill in Dimension as `1536`
 - Once the index is successfully created, click on "API Keys" on the left side nav and create an API key: copy "Environment" value to `PINECONE_ENVIRONMENT` variable, and "Value" to `PINECONE_API_KEY`
-
-```
-you must update your .env.local file with all keys (OpenAI, Pinecone, Replicate)
-```
 
 
 ### 4. Generate embeddings
