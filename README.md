@@ -51,8 +51,7 @@ All Geekathon teams will receive an email with an API key for OpenAI.
 #### 3.2 How to get secrets (Pinecone, Replicate)
 
 a. **Replicate API key**
-
-Visit https://replicate.com/account/api-tokens to get your Replicate API key
+- Visit https://replicate.com/account/api-tokens to get your Replicate API key
 
 b. **Pinecone API key**
 - Create a Pinecone index by visiting https://app.pinecone.io/ and click on "Create Index"
@@ -63,6 +62,7 @@ b. **Pinecone API key**
 ```
 you must update your .env.local file with all keys (OpenAI, Pinecone, Replicate)
 ```
+
 
 ### 4. Generate embeddings
 
